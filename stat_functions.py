@@ -101,9 +101,8 @@ def expected(pop_lists):
     
     for ind in range(len(pop_lists[0])):
         placer = 0
-        adder = 0
         x = 0
-        while placer < len(pop_lists[0]) - 1:
+        while placer < len(pop_lists):
             x += pop_lists[placer][ind]
             placer +=1
         x = (x/total) 
