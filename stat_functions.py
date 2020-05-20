@@ -16,12 +16,12 @@ def tstar(conf_level, n):
 def z_sample_size_calc(phat = 0.5, margin_error = 0.02, confidence = 0.95):
     z = two_tail(confidence)
     z_star = norm.ppf(z)
-    n = ((phat * (1 - phat))**(0.5) / (margin_error/z_star))**2
+    n = (np.sqrt((phat * (1 - phat))) / (margin_error/z_star))**2
     if n == int(n):
         return n
     else:
-        n = int(n) + 1
-        return n
+        nint = int(n) +1
+        return nint
     return
 
 def t_sample_size_calc(stdev, margin_error, confidence = 0.95):
