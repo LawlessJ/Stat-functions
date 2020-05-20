@@ -113,3 +113,11 @@ def expected(pop_lists):
             new_lists[groups][ind] = n_lists[groups] * exp[ind]
     flat_expected_list = [value for sublist in new_lists for value in sublist]
     return flat_expected_list
+
+def chi2_homogeneity(pop_lists):
+    dof = (len(pop_lists) -1) * (len(pop_lists[0]) -1)
+    act = [value for sublist in pop_lists for value in sublist]
+    exp = expected(pop_lists)
+    chi_2, trash = chisquare(act, exp, ddof = dof)
+    pval = 1 - chi2.cdf(chi_2, dof)
+    return chi_2, pval
