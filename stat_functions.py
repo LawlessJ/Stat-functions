@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.stats import norm, t
+from scipy.stats import norm, t, chisquare, chi2
 
 #norm.ppf() converts a proportion into its appropriate z-score on a normal distribution
 #norm.cdf() will likewise convert a z-score into a proportion, useful for rendering a p-value
