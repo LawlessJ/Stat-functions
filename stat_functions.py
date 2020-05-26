@@ -42,6 +42,14 @@ def z_conf_intv(phat, n, confidence = 0.95):
     margin = (z_score * se)
     return (phat - margin, phat + margin)
 
+def diff_z_intv(phat1, n1, phat2, n2, confidence = 0.95):
+    z = two_tail(confidence)
+    z_score = norm.ppf(z)
+    se_diff = np.sqrt((phat1 * (1-phat1))/n1 + (phat2 * (1-phat2))/n2)
+    margin = (z_score * se_diff)
+    samp_diff = phat1 - phat2
+    return (samp_diff - margin, samp_diff + margin)
+
 def t_conf_intv(xbar, stdev, n, confidence = 0.95):
     dof = n - 1
     t_star = tstar(confidence, n)
